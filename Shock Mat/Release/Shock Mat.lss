@@ -1,0 +1,175 @@
+
+Shock Mat.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000074  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000170  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  00000170  2**0
+                  CONTENTS, READONLY
+  3 .debug_info   00000420  00000000  00000000  0000019f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 000003e8  00000000  00000000  000005bf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000000f5  00000000  00000000  000009a7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_str    00000169  00000000  00000000  00000a9c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .text         00000002  00000074  00000074  000000e8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  8 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000c08  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .text.startup.main 00000050  00000076  00000076  000000ea  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 10 .text.__vector_3 00000036  000000c6  000000c6  0000013a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 11 .bss.timerCounter 00000002  00800060  00800060  00000170  2**0
+                  ALLOC
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	11 c0       	rjmp	.+34     	; 0x24 <__ctors_end>
+   2:	38 c0       	rjmp	.+112    	; 0x74 <_etext>
+   4:	37 c0       	rjmp	.+110    	; 0x74 <_etext>
+   6:	5f c0       	rjmp	.+190    	; 0xc6 <__vector_3>
+   8:	35 c0       	rjmp	.+106    	; 0x74 <_etext>
+   a:	34 c0       	rjmp	.+104    	; 0x74 <_etext>
+   c:	33 c0       	rjmp	.+102    	; 0x74 <_etext>
+   e:	32 c0       	rjmp	.+100    	; 0x74 <_etext>
+  10:	31 c0       	rjmp	.+98     	; 0x74 <_etext>
+  12:	30 c0       	rjmp	.+96     	; 0x74 <_etext>
+  14:	2f c0       	rjmp	.+94     	; 0x74 <_etext>
+  16:	2e c0       	rjmp	.+92     	; 0x74 <_etext>
+  18:	2d c0       	rjmp	.+90     	; 0x74 <_etext>
+  1a:	2c c0       	rjmp	.+88     	; 0x74 <_etext>
+  1c:	2b c0       	rjmp	.+86     	; 0x74 <_etext>
+
+0000001e <.dinit>:
+  1e:	00 60       	ori	r16, 0x00	; 0
+  20:	00 62       	ori	r16, 0x20	; 32
+  22:	80 00       	.word	0x0080	; ????
+
+00000024 <__ctors_end>:
+  24:	11 24       	eor	r1, r1
+  26:	1f be       	out	0x3f, r1	; 63
+  28:	cf e5       	ldi	r28, 0x5F	; 95
+  2a:	d2 e0       	ldi	r29, 0x02	; 2
+  2c:	de bf       	out	0x3e, r29	; 62
+  2e:	cd bf       	out	0x3d, r28	; 61
+
+00000030 <__do_copy_data>:
+  30:	ee e1       	ldi	r30, 0x1E	; 30
+  32:	f0 e0       	ldi	r31, 0x00	; 0
+  34:	40 e0       	ldi	r20, 0x00	; 0
+  36:	17 c0       	rjmp	.+46     	; 0x66 <__do_clear_bss+0x8>
+  38:	b5 91       	lpm	r27, Z+
+  3a:	a5 91       	lpm	r26, Z+
+  3c:	35 91       	lpm	r19, Z+
+  3e:	25 91       	lpm	r18, Z+
+  40:	05 91       	lpm	r16, Z+
+  42:	07 fd       	sbrc	r16, 7
+  44:	0c c0       	rjmp	.+24     	; 0x5e <__do_clear_bss>
+  46:	95 91       	lpm	r25, Z+
+  48:	85 91       	lpm	r24, Z+
+  4a:	ef 01       	movw	r28, r30
+  4c:	f9 2f       	mov	r31, r25
+  4e:	e8 2f       	mov	r30, r24
+  50:	05 90       	lpm	r0, Z+
+  52:	0d 92       	st	X+, r0
+  54:	a2 17       	cp	r26, r18
+  56:	b3 07       	cpc	r27, r19
+  58:	d9 f7       	brne	.-10     	; 0x50 <__SREG__+0x11>
+  5a:	fe 01       	movw	r30, r28
+  5c:	04 c0       	rjmp	.+8      	; 0x66 <__do_clear_bss+0x8>
+
+0000005e <__do_clear_bss>:
+  5e:	1d 92       	st	X+, r1
+  60:	a2 17       	cp	r26, r18
+  62:	b3 07       	cpc	r27, r19
+  64:	e1 f7       	brne	.-8      	; 0x5e <__do_clear_bss>
+  66:	e3 32       	cpi	r30, 0x23	; 35
+  68:	f4 07       	cpc	r31, r20
+  6a:	31 f7       	brne	.-52     	; 0x38 <__do_copy_data+0x8>
+  6c:	04 d0       	rcall	.+8      	; 0x76 <main>
+  6e:	00 c0       	rjmp	.+0      	; 0x70 <_exit>
+
+00000070 <_exit>:
+  70:	f8 94       	cli
+
+00000072 <__stop_program>:
+  72:	ff cf       	rjmp	.-2      	; 0x72 <__stop_program>
+
+Disassembly of section .text:
+
+00000074 <__bad_interrupt>:
+  74:	c5 cf       	rjmp	.-118    	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.startup.main:
+
+00000076 <main>:
+  76:	f8 94       	cli
+  78:	17 ba       	out	0x17, r1	; 23
+  7a:	bb 9a       	sbi	0x17, 3	; 23
+  7c:	18 ba       	out	0x18, r1	; 24
+  7e:	10 be       	out	0x30, r1	; 48
+  80:	1f bc       	out	0x2f, r1	; 47
+  82:	8f e0       	ldi	r24, 0x0F	; 15
+  84:	8d bd       	out	0x2d, r24	; 45
+  86:	80 b7       	in	r24, 0x30	; 48
+  88:	86 68       	ori	r24, 0x86	; 134
+  8a:	80 bf       	out	0x30, r24	; 48
+  8c:	89 b7       	in	r24, 0x39	; 57
+  8e:	80 64       	ori	r24, 0x40	; 64
+  90:	89 bf       	out	0x39, r24	; 57
+  92:	78 94       	sei
+  94:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  98:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  9c:	88 3a       	cpi	r24, 0xA8	; 168
+  9e:	91 46       	sbci	r25, 0x61	; 97
+  a0:	c8 f3       	brcs	.-14     	; 0x94 <main+0x1e>
+  a2:	f8 94       	cli
+  a4:	c3 98       	cbi	0x18, 3	; 24
+  a6:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  aa:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+  ae:	3f ef       	ldi	r19, 0xFF	; 255
+  b0:	8c e2       	ldi	r24, 0x2C	; 44
+  b2:	91 e3       	ldi	r25, 0x31	; 49
+  b4:	21 e0       	ldi	r18, 0x01	; 1
+  b6:	31 50       	subi	r19, 0x01	; 1
+  b8:	80 40       	sbci	r24, 0x00	; 0
+  ba:	90 40       	sbci	r25, 0x00	; 0
+  bc:	20 40       	sbci	r18, 0x00	; 0
+  be:	d9 f7       	brne	.-10     	; 0xb6 <main+0x40>
+  c0:	00 c0       	rjmp	.+0      	; 0xc2 <main+0x4c>
+  c2:	00 00       	nop
+  c4:	e6 cf       	rjmp	.-52     	; 0x92 <main+0x1c>
+
+Disassembly of section .text.__vector_3:
+
+000000c6 <__vector_3>:
+  c6:	1f 92       	push	r1
+  c8:	0f 92       	push	r0
+  ca:	0f b6       	in	r0, 0x3f	; 63
+  cc:	0f 92       	push	r0
+  ce:	11 24       	eor	r1, r1
+  d0:	8f 93       	push	r24
+  d2:	9f 93       	push	r25
+  d4:	98 b3       	in	r25, 0x18	; 24
+  d6:	88 e0       	ldi	r24, 0x08	; 8
+  d8:	89 27       	eor	r24, r25
+  da:	88 bb       	out	0x18, r24	; 24
+  dc:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  e0:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  e4:	01 96       	adiw	r24, 0x01	; 1
+  e6:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  ea:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+  ee:	9f 91       	pop	r25
+  f0:	8f 91       	pop	r24
+  f2:	0f 90       	pop	r0
+  f4:	0f be       	out	0x3f, r0	; 63
+  f6:	0f 90       	pop	r0
+  f8:	1f 90       	pop	r1
+  fa:	18 95       	reti

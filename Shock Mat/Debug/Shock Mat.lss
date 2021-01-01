@@ -1,0 +1,192 @@
+
+Shock Mat.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000074  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  0000014e  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  0000014e  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000038  00000000  00000000  0000017d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000007e0  00000000  00000000  000001b5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000004ff  00000000  00000000  00000995  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000263  00000000  00000000  00000e94  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000054  00000000  00000000  000010f8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000169  00000000  00000000  0000114c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    0000006e  00000000  00000000  000012b5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000028  00000000  00000000  00001323  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .text         00000002  000000d8  000000d8  0000014c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000134c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .text.cli     00000008  000000c8  000000c8  0000013c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .text.sei     00000008  000000d0  000000d0  00000144  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.main    00000054  00000074  00000074  000000e8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .bss.timerCounter 00000002  00800060  00800060  0000014e  2**0
+                  ALLOC
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	11 c0       	rjmp	.+34     	; 0x24 <__ctors_end>
+   2:	6a c0       	rjmp	.+212    	; 0xd8 <__bad_interrupt>
+   4:	69 c0       	rjmp	.+210    	; 0xd8 <__bad_interrupt>
+   6:	68 c0       	rjmp	.+208    	; 0xd8 <__bad_interrupt>
+   8:	67 c0       	rjmp	.+206    	; 0xd8 <__bad_interrupt>
+   a:	66 c0       	rjmp	.+204    	; 0xd8 <__bad_interrupt>
+   c:	65 c0       	rjmp	.+202    	; 0xd8 <__bad_interrupt>
+   e:	64 c0       	rjmp	.+200    	; 0xd8 <__bad_interrupt>
+  10:	63 c0       	rjmp	.+198    	; 0xd8 <__bad_interrupt>
+  12:	62 c0       	rjmp	.+196    	; 0xd8 <__bad_interrupt>
+  14:	61 c0       	rjmp	.+194    	; 0xd8 <__bad_interrupt>
+  16:	60 c0       	rjmp	.+192    	; 0xd8 <__bad_interrupt>
+  18:	5f c0       	rjmp	.+190    	; 0xd8 <__bad_interrupt>
+  1a:	5e c0       	rjmp	.+188    	; 0xd8 <__bad_interrupt>
+  1c:	5d c0       	rjmp	.+186    	; 0xd8 <__bad_interrupt>
+
+0000001e <.dinit>:
+  1e:	00 60       	ori	r16, 0x00	; 0
+  20:	00 62       	ori	r16, 0x20	; 32
+  22:	80 00       	.word	0x0080	; ????
+
+00000024 <__ctors_end>:
+  24:	11 24       	eor	r1, r1
+  26:	1f be       	out	0x3f, r1	; 63
+  28:	cf e5       	ldi	r28, 0x5F	; 95
+  2a:	d2 e0       	ldi	r29, 0x02	; 2
+  2c:	de bf       	out	0x3e, r29	; 62
+  2e:	cd bf       	out	0x3d, r28	; 61
+
+00000030 <__do_copy_data>:
+  30:	ee e1       	ldi	r30, 0x1E	; 30
+  32:	f0 e0       	ldi	r31, 0x00	; 0
+  34:	40 e0       	ldi	r20, 0x00	; 0
+  36:	17 c0       	rjmp	.+46     	; 0x66 <__do_clear_bss+0x8>
+  38:	b5 91       	lpm	r27, Z+
+  3a:	a5 91       	lpm	r26, Z+
+  3c:	35 91       	lpm	r19, Z+
+  3e:	25 91       	lpm	r18, Z+
+  40:	05 91       	lpm	r16, Z+
+  42:	07 fd       	sbrc	r16, 7
+  44:	0c c0       	rjmp	.+24     	; 0x5e <__do_clear_bss>
+  46:	95 91       	lpm	r25, Z+
+  48:	85 91       	lpm	r24, Z+
+  4a:	ef 01       	movw	r28, r30
+  4c:	f9 2f       	mov	r31, r25
+  4e:	e8 2f       	mov	r30, r24
+  50:	05 90       	lpm	r0, Z+
+  52:	0d 92       	st	X+, r0
+  54:	a2 17       	cp	r26, r18
+  56:	b3 07       	cpc	r27, r19
+  58:	d9 f7       	brne	.-10     	; 0x50 <__SREG__+0x11>
+  5a:	fe 01       	movw	r30, r28
+  5c:	04 c0       	rjmp	.+8      	; 0x66 <__do_clear_bss+0x8>
+
+0000005e <__do_clear_bss>:
+  5e:	1d 92       	st	X+, r1
+  60:	a2 17       	cp	r26, r18
+  62:	b3 07       	cpc	r27, r19
+  64:	e1 f7       	brne	.-8      	; 0x5e <__do_clear_bss>
+  66:	e3 32       	cpi	r30, 0x23	; 35
+  68:	f4 07       	cpc	r31, r20
+  6a:	31 f7       	brne	.-52     	; 0x38 <__do_copy_data+0x8>
+  6c:	03 d0       	rcall	.+6      	; 0x74 <_etext>
+  6e:	00 c0       	rjmp	.+0      	; 0x70 <_exit>
+
+00000070 <_exit>:
+  70:	f8 94       	cli
+
+00000072 <__stop_program>:
+  72:	ff cf       	rjmp	.-2      	; 0x72 <__stop_program>
+
+Disassembly of section .text:
+
+000000d8 <__bad_interrupt>:
+  d8:	93 cf       	rjmp	.-218    	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.cli:
+
+000000c8 <cli>:
+	PORTB ^= 0b001000;
+	timerCounter++;
+}
+
+void cli() {
+	SREG &= ~0b10000000;
+  c8:	8f b7       	in	r24, 0x3f	; 63
+  ca:	8f 77       	andi	r24, 0x7F	; 127
+  cc:	8f bf       	out	0x3f, r24	; 63
+  ce:	08 95       	ret
+
+Disassembly of section .text.sei:
+
+000000d0 <sei>:
+}
+
+void sei() {
+	SREG |= 0b10000000;
+  d0:	8f b7       	in	r24, 0x3f	; 63
+  d2:	80 68       	ori	r24, 0x80	; 128
+  d4:	8f bf       	out	0x3f, r24	; 63
+  d6:	08 95       	ret
+
+Disassembly of section .text.main:
+
+00000074 <main>:
+}
+
+ISR(TIMER1_COMPA_vect) {
+	PORTB ^= 0b001000;
+	timerCounter++;
+}
+  74:	29 d0       	rcall	.+82     	; 0xc8 <cli>
+  76:	17 ba       	out	0x17, r1	; 23
+  78:	87 b3       	in	r24, 0x17	; 23
+  7a:	88 60       	ori	r24, 0x08	; 8
+  7c:	87 bb       	out	0x17, r24	; 23
+  7e:	18 ba       	out	0x18, r1	; 24
+  80:	10 be       	out	0x30, r1	; 48
+  82:	1f bc       	out	0x2f, r1	; 47
+  84:	83 e3       	ldi	r24, 0x33	; 51
+  86:	8d bd       	out	0x2d, r24	; 45
+  88:	80 b7       	in	r24, 0x30	; 48
+  8a:	87 68       	ori	r24, 0x87	; 135
+  8c:	80 bf       	out	0x30, r24	; 48
+  8e:	80 b5       	in	r24, 0x20	; 32
+  90:	8b 7f       	andi	r24, 0xFB	; 251
+  92:	80 bd       	out	0x20, r24	; 32
+  94:	89 b7       	in	r24, 0x39	; 57
+  96:	80 64       	ori	r24, 0x40	; 64
+  98:	89 bf       	out	0x39, r24	; 57
+  9a:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  9e:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  a2:	88 35       	cpi	r24, 0x58	; 88
+  a4:	92 40       	sbci	r25, 0x02	; 2
+  a6:	c8 f3       	brcs	.-14     	; 0x9a <main+0x26>
+  a8:	0f d0       	rcall	.+30     	; 0xc8 <cli>
+  aa:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  ae:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+  b2:	8f e3       	ldi	r24, 0x3F	; 63
+  b4:	92 e4       	ldi	r25, 0x42	; 66
+  b6:	2f e0       	ldi	r18, 0x0F	; 15
+  b8:	81 50       	subi	r24, 0x01	; 1
+  ba:	90 40       	sbci	r25, 0x00	; 0
+  bc:	20 40       	sbci	r18, 0x00	; 0
+  be:	e1 f7       	brne	.-8      	; 0xb8 <main+0x44>
+  c0:	00 c0       	rjmp	.+0      	; 0xc2 <main+0x4e>
+  c2:	00 00       	nop
+  c4:	05 d0       	rcall	.+10     	; 0xd0 <sei>
+  c6:	e9 cf       	rjmp	.-46     	; 0x9a <main+0x26>
