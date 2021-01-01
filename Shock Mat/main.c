@@ -51,7 +51,7 @@ int main(void) {
     while(1) {
 		if (timerCounter >= 25000) {
 			di();
-			PORTB &= ~(1 << PB3);
+			PORTB &= ~(1 << PB3); //Make sure PB3 is LOW so the N-Mosfet doesn't burn up from constantly conducting current.
 			timerCounter = 0;
 			_delay_ms(15000);
 			ei();
