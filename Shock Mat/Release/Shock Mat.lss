@@ -105,7 +105,7 @@ Disassembly of section .text:
 Disassembly of section .text:
 
 00000074 <__bad_interrupt>:
-  74:	c5 cf       	rjmp	.-118    	; 0x0 <__TEXT_REGION_ORIGIN__>
+  74:	c5 cf       	rjmp	.-118    	; 0x0 <__vectors>
 
 Disassembly of section .text.startup.main:
 
@@ -125,15 +125,15 @@ Disassembly of section .text.startup.main:
   8e:	80 64       	ori	r24, 0x40	; 64
   90:	89 bf       	out	0x39, r24	; 57
   92:	78 94       	sei
-  94:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
-  98:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  94:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <_edata>
+  98:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <_edata+0x1>
   9c:	88 3a       	cpi	r24, 0xA8	; 168
   9e:	91 46       	sbci	r25, 0x61	; 97
   a0:	c8 f3       	brcs	.-14     	; 0x94 <main+0x1e>
   a2:	f8 94       	cli
   a4:	c3 98       	cbi	0x18, 3	; 24
-  a6:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
-  aa:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+  a6:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <_edata+0x1>
+  aa:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <_edata>
   ae:	3f ef       	ldi	r19, 0xFF	; 255
   b0:	8c e2       	ldi	r24, 0x2C	; 44
   b2:	91 e3       	ldi	r25, 0x31	; 49
@@ -161,11 +161,11 @@ Disassembly of section .text.__vector_3:
   d6:	88 e0       	ldi	r24, 0x08	; 8
   d8:	89 27       	eor	r24, r25
   da:	88 bb       	out	0x18, r24	; 24
-  dc:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
-  e0:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  dc:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <_edata>
+  e0:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <_edata+0x1>
   e4:	01 96       	adiw	r24, 0x01	; 1
-  e6:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
-  ea:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+  e6:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
+  ea:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
   ee:	9f 91       	pop	r25
   f0:	8f 91       	pop	r24
   f2:	0f 90       	pop	r0

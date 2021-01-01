@@ -5,57 +5,55 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         00000074  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  0000014e  2**0
+  1 .data         00000000  00800060  00800060  00000176  2**0
                   ALLOC, LOAD, DATA
-  2 .comment      0000002f  00000000  00000000  0000014e  2**0
+  2 .comment      0000002f  00000000  00000000  00000176  2**0
                   CONTENTS, READONLY
-  3 .debug_aranges 00000038  00000000  00000000  0000017d  2**0
+  3 .debug_aranges 00000028  00000000  00000000  000001a5  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   000007e0  00000000  00000000  000001b5  2**0
+  4 .debug_info   00000779  00000000  00000000  000001cd  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 000004ff  00000000  00000000  00000995  2**0
+  5 .debug_abbrev 000004cb  00000000  00000000  00000946  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   00000263  00000000  00000000  00000e94  2**0
+  6 .debug_line   0000023c  00000000  00000000  00000e11  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  00000054  00000000  00000000  000010f8  2**2
+  7 .debug_frame  00000048  00000000  00000000  00001050  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    00000169  00000000  00000000  0000114c  2**0
+  8 .debug_str    00000169  00000000  00000000  00001098  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    0000006e  00000000  00000000  000012b5  2**0
+  9 .debug_loc    00000091  00000000  00000000  00001201  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000028  00000000  00000000  00001323  2**0
+ 10 .debug_ranges 00000018  00000000  00000000  00001292  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .text         00000002  000000d8  000000d8  0000014c  2**1
+ 11 .text         00000002  00000100  00000100  00000174  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000134c  2**2
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000012ac  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .text.cli     00000008  000000c8  000000c8  0000013c  2**1
+ 13 .text.main    00000056  00000074  00000074  000000e8  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .text.sei     00000008  000000d0  000000d0  00000144  2**1
+ 14 .text.__vector_3 00000036  000000ca  000000ca  0000013e  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 15 .text.main    00000054  00000074  00000074  000000e8  2**1
-                  CONTENTS, ALLOC, LOAD, READONLY, CODE
- 16 .bss.timerCounter 00000002  00800060  00800060  0000014e  2**0
+ 15 .bss.timerCounter 00000002  00800060  00800060  00000176  2**0
                   ALLOC
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	11 c0       	rjmp	.+34     	; 0x24 <__ctors_end>
-   2:	6a c0       	rjmp	.+212    	; 0xd8 <__bad_interrupt>
-   4:	69 c0       	rjmp	.+210    	; 0xd8 <__bad_interrupt>
-   6:	68 c0       	rjmp	.+208    	; 0xd8 <__bad_interrupt>
-   8:	67 c0       	rjmp	.+206    	; 0xd8 <__bad_interrupt>
-   a:	66 c0       	rjmp	.+204    	; 0xd8 <__bad_interrupt>
-   c:	65 c0       	rjmp	.+202    	; 0xd8 <__bad_interrupt>
-   e:	64 c0       	rjmp	.+200    	; 0xd8 <__bad_interrupt>
-  10:	63 c0       	rjmp	.+198    	; 0xd8 <__bad_interrupt>
-  12:	62 c0       	rjmp	.+196    	; 0xd8 <__bad_interrupt>
-  14:	61 c0       	rjmp	.+194    	; 0xd8 <__bad_interrupt>
-  16:	60 c0       	rjmp	.+192    	; 0xd8 <__bad_interrupt>
-  18:	5f c0       	rjmp	.+190    	; 0xd8 <__bad_interrupt>
-  1a:	5e c0       	rjmp	.+188    	; 0xd8 <__bad_interrupt>
-  1c:	5d c0       	rjmp	.+186    	; 0xd8 <__bad_interrupt>
+   2:	7e c0       	rjmp	.+252    	; 0x100 <__bad_interrupt>
+   4:	7d c0       	rjmp	.+250    	; 0x100 <__bad_interrupt>
+   6:	61 c0       	rjmp	.+194    	; 0xca <__vector_3>
+   8:	7b c0       	rjmp	.+246    	; 0x100 <__bad_interrupt>
+   a:	7a c0       	rjmp	.+244    	; 0x100 <__bad_interrupt>
+   c:	79 c0       	rjmp	.+242    	; 0x100 <__bad_interrupt>
+   e:	78 c0       	rjmp	.+240    	; 0x100 <__bad_interrupt>
+  10:	77 c0       	rjmp	.+238    	; 0x100 <__bad_interrupt>
+  12:	76 c0       	rjmp	.+236    	; 0x100 <__bad_interrupt>
+  14:	75 c0       	rjmp	.+234    	; 0x100 <__bad_interrupt>
+  16:	74 c0       	rjmp	.+232    	; 0x100 <__bad_interrupt>
+  18:	73 c0       	rjmp	.+230    	; 0x100 <__bad_interrupt>
+  1a:	72 c0       	rjmp	.+228    	; 0x100 <__bad_interrupt>
+  1c:	71 c0       	rjmp	.+226    	; 0x100 <__bad_interrupt>
 
 0000001e <.dinit>:
   1e:	00 60       	ori	r16, 0x00	; 0
@@ -114,79 +112,133 @@ Disassembly of section .text:
 
 Disassembly of section .text:
 
-000000d8 <__bad_interrupt>:
-  d8:	93 cf       	rjmp	.-218    	; 0x0 <__TEXT_REGION_ORIGIN__>
-
-Disassembly of section .text.cli:
-
-000000c8 <cli>:
-	PORTB ^= 0b001000;
-	timerCounter++;
-}
-
-void cli() {
-	SREG &= ~0b10000000;
-  c8:	8f b7       	in	r24, 0x3f	; 63
-  ca:	8f 77       	andi	r24, 0x7F	; 127
-  cc:	8f bf       	out	0x3f, r24	; 63
-  ce:	08 95       	ret
-
-Disassembly of section .text.sei:
-
-000000d0 <sei>:
-}
-
-void sei() {
-	SREG |= 0b10000000;
-  d0:	8f b7       	in	r24, 0x3f	; 63
-  d2:	80 68       	ori	r24, 0x80	; 128
-  d4:	8f bf       	out	0x3f, r24	; 63
-  d6:	08 95       	ret
+00000100 <__bad_interrupt>:
+ 100:	7f cf       	rjmp	.-258    	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.main:
 
 00000074 <main>:
-}
 
-ISR(TIMER1_COMPA_vect) {
-	PORTB ^= 0b001000;
-	timerCounter++;
-}
-  74:	29 d0       	rcall	.+82     	; 0xc8 <cli>
+volatile uint16_t timerCounter = 0;
+
+int main(void) {
+	//Disable global interrupts
+	di();
+  74:	f8 94       	cli
+	
+	//Set IO pin modes
+	DDRB = 0;
   76:	17 ba       	out	0x17, r1	; 23
+	DDRB |= (1 << PB3);
   78:	87 b3       	in	r24, 0x17	; 23
   7a:	88 60       	ori	r24, 0x08	; 8
   7c:	87 bb       	out	0x17, r24	; 23
+
+	PORTB = 0;
   7e:	18 ba       	out	0x18, r1	; 24
+
+	//Reset Timer1
+	TCCR1 = 0;
   80:	10 be       	out	0x30, r1	; 48
+	TCNT1 = 0;
   82:	1f bc       	out	0x2f, r1	; 47
-  84:	83 e3       	ldi	r24, 0x33	; 51
+	//Clock Freq: 8000000Hz, Prescaler: 32, Timer Freq: ?
+	/*(Clock Freq / (timer freq * prescaler)) - 1
+	This calculation isn't 100% accurate because of the
+	added overhead from the rest of the code. In this case,
+	I found 15 to give a ?KHz signal.*/
+	OCR1C = 15;
+  84:	8f e0       	ldi	r24, 0x0F	; 15
   86:	8d bd       	out	0x2d, r24	; 45
+	
+	//Set 32 Prescaler and CTC Mode
+	TCCR1 |= (1 << CTC1) | (1 << CS12) | (1 << CS11);
   88:	80 b7       	in	r24, 0x30	; 48
-  8a:	87 68       	ori	r24, 0x87	; 135
+  8a:	86 68       	ori	r24, 0x86	; 134
   8c:	80 bf       	out	0x30, r24	; 48
-  8e:	80 b5       	in	r24, 0x20	; 32
-  90:	8b 7f       	andi	r24, 0xFB	; 251
-  92:	80 bd       	out	0x20, r24	; 32
-  94:	89 b7       	in	r24, 0x39	; 57
-  96:	80 64       	ori	r24, 0x40	; 64
-  98:	89 bf       	out	0x39, r24	; 57
-  9a:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
-  9e:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
-  a2:	88 35       	cpi	r24, 0x58	; 88
-  a4:	92 40       	sbci	r25, 0x02	; 2
-  a6:	c8 f3       	brcs	.-14     	; 0x9a <main+0x26>
-  a8:	0f d0       	rcall	.+30     	; 0xc8 <cli>
-  aa:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
-  ae:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
-  b2:	8f e3       	ldi	r24, 0x3F	; 63
-  b4:	92 e4       	ldi	r25, 0x42	; 66
-  b6:	2f e0       	ldi	r18, 0x0F	; 15
-  b8:	81 50       	subi	r24, 0x01	; 1
-  ba:	90 40       	sbci	r25, 0x00	; 0
-  bc:	20 40       	sbci	r18, 0x00	; 0
-  be:	e1 f7       	brne	.-8      	; 0xb8 <main+0x44>
-  c0:	00 c0       	rjmp	.+0      	; 0xc2 <main+0x4e>
-  c2:	00 00       	nop
-  c4:	05 d0       	rcall	.+10     	; 0xd0 <sei>
-  c6:	e9 cf       	rjmp	.-46     	; 0x9a <main+0x26>
+	//Shut off Timer0
+	//Timer0 is actually needed for the _delay_ms function
+	//PRR &= ~(1 << PRTIM0);
+
+	//Enable timer interrupts
+	TIMSK |= (1 << OCIE1A);
+  8e:	89 b7       	in	r24, 0x39	; 57
+  90:	80 64       	ori	r24, 0x40	; 64
+  92:	89 bf       	out	0x39, r24	; 57
+
+	//Enable global interrupts
+	ei();
+  94:	78 94       	sei
+	
+    while(1) {
+		if (timerCounter >= 25000) {
+  96:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  9a:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  9e:	88 3a       	cpi	r24, 0xA8	; 168
+  a0:	91 46       	sbci	r25, 0x61	; 97
+  a2:	c8 f3       	brcs	.-14     	; 0x96 <main+0x22>
+			di();
+  a4:	f8 94       	cli
+			PORTB &= ~(1 << PB3); //Make sure PB3 is LOW so the N-Mosfet doesn't burn up from constantly conducting current.
+  a6:	88 b3       	in	r24, 0x18	; 24
+  a8:	87 7f       	andi	r24, 0xF7	; 247
+  aa:	88 bb       	out	0x18, r24	; 24
+			timerCounter = 0;
+  ac:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  b0:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  b4:	8f eb       	ldi	r24, 0xBF	; 191
+  b6:	96 ec       	ldi	r25, 0xC6	; 198
+  b8:	2d e2       	ldi	r18, 0x2D	; 45
+  ba:	81 50       	subi	r24, 0x01	; 1
+  bc:	90 40       	sbci	r25, 0x00	; 0
+  be:	20 40       	sbci	r18, 0x00	; 0
+  c0:	e1 f7       	brne	.-8      	; 0xba <main+0x46>
+  c2:	00 c0       	rjmp	.+0      	; 0xc4 <main+0x50>
+  c4:	00 00       	nop
+			_delay_ms(15000);
+			ei();
+  c6:	78 94       	sei
+  c8:	e6 cf       	rjmp	.-52     	; 0x96 <main+0x22>
+
+Disassembly of section .text.__vector_3:
+
+000000ca <__vector_3>:
+		}
+    }
+}
+
+ISR(TIMER1_COMPA_vect) {
+  ca:	1f 92       	push	r1
+  cc:	0f 92       	push	r0
+  ce:	0f b6       	in	r0, 0x3f	; 63
+  d0:	0f 92       	push	r0
+  d2:	11 24       	eor	r1, r1
+  d4:	8f 93       	push	r24
+  d6:	9f 93       	push	r25
+	//Alternate PB3 states every time this interrupt is triggered
+	PORTB ^= (1 << PB3);
+  d8:	98 b3       	in	r25, 0x18	; 24
+  da:	88 e0       	ldi	r24, 0x08	; 8
+  dc:	89 27       	eor	r24, r25
+  de:	88 bb       	out	0x18, r24	; 24
+	
+	//Increment timer counter
+	timerCounter++;
+  e0:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  e4:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  e8:	01 96       	adiw	r24, 0x01	; 1
+  ea:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  ee:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+  f2:	9f 91       	pop	r25
+  f4:	8f 91       	pop	r24
+  f6:	0f 90       	pop	r0
+  f8:	0f be       	out	0x3f, r0	; 63
+  fa:	0f 90       	pop	r0
+  fc:	1f 90       	pop	r1
+  fe:	18 95       	reti
