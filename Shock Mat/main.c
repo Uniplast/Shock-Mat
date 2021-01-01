@@ -28,11 +28,11 @@ int main(void) {
 	TCCR1 = 0;
 	TCNT1 = 0;
 
-	//Clock Freq: 8000000Hz, Prescaler: 32, Timer Freq: 2000Hz
+	//Clock Freq: 8000000Hz, Prescaler: 32, Timer Freq: ?
 	/*(Clock Freq / (timer freq * prescaler)) - 1
 	This calculation isn't 100% accurate because of the
 	added overhead from the rest of the code. In this case,
-	I found 15 to give a 1KHz signal.*/
+	I found 15 to give a ?KHz signal.*/
 	OCR1C = 15;
 	
 	//Set 256 Prescaler and CTC Mode
