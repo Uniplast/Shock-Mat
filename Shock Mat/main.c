@@ -35,10 +35,11 @@ int main(void) {
 	I found 15 to give a ?KHz signal.*/
 	OCR1C = 15;
 	
-	//Set 256 Prescaler and CTC Mode
+	//Set 32 Prescaler and CTC Mode
 	TCCR1 |= (1 << CTC1) | (1 << CS12) | (1 << CS11);
 
 	//Shut off Timer0
+	//Timer0 is actually needed for the _delay_ms function
 	//PRR &= ~(1 << PRTIM0);
 
 	//Enable timer interrupts
@@ -59,6 +60,9 @@ int main(void) {
 }
 
 ISR(TIMER1_COMPA_vect) {
+	//Alternate PB3 states every time this interrupt is triggered
 	PORTB ^= (1 << PB3);
+	
+	//Increment timer counter
 	timerCounter++;
 }
