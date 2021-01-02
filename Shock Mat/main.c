@@ -22,6 +22,7 @@ int main(void) {
 	DDRB = 0;
 	DDRB |= (1 << PB3);
 
+	//Set all pins low
 	PORTB = 0;
 
 	//Reset Timer1
